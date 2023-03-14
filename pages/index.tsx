@@ -141,7 +141,6 @@ export default function Index() {
     }, [isPending]);
 
     const handleSubmit = (e) => {
-        e.preventDefault();
         setIsPending(true);
         setProgressPercent(0);
         setLoadingText('Loading');
@@ -150,15 +149,21 @@ export default function Index() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ text }),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-                setIsPending(false);
-                setProgressPercent(100);
-                setResult(data);
-            });
+        }).then((res) => res.json()).then((data) => {
+            const { translation } = data;
+            setIsPending(false);
+            setProgressPercent(100);
+            setResult(translation);
+        });
     };
+
+    const reset = () => {
+        setText('');
+        setResult('');
+        setProgressPercent(0);
+        setLoadingText('');
+    };
+
 
     return (
         <>
@@ -175,7 +180,7 @@ export default function Index() {
               Translate any word, phrase, or text into emojis.
             </p>
           </div>
-          {!isPending && (<>
+            {!isPending && result?.length === 0 && (<>
             <div className="mt-2 sm:mt-0 sm:col-span-2 sm:flex sm:justify-end sm:items-center sm:space-x-3 sm:space-y-0 space-y-3 py-4">
                 <textarea
                 rows={4}
@@ -196,7 +201,7 @@ export default function Index() {
                 </button>
             </div>
             </> )}
-            {isPending && (<>
+            {isPending && result?.length === 0 && (<>
             <div className="mt-2 sm:mt-0 sm:col-span-2 sm:flex sm:items-center sm:space-x-3 sm:space-y-0 space-y-3 py-4">
                 <h3 className="text-2xl font-bold tracking-left text-white sm:text-4xl text-left">
                     {loadingText}
@@ -208,6 +213,24 @@ export default function Index() {
                 </div>
             )}
             </> )}
+            {result?.length > 0 && (<>
+            <div className="mt-2 sm:mt-0 sm:col-span-2 sm:flex sm:items-center sm:space-x-3 sm:space-y-0 space-y-3 py-4">
+                <h3 className="text-2xl font-bold tracking-left text-white sm:text-4xl text-left">
+                    {result}
+                </h3>
+            </div>
+            <div className="mt-2 sm:mt-0 sm:col-span-2 sm:flex sm:justify-end sm:items-center sm:space-x-3 sm:space-y-0 space-y-3 py-4">
+                <button
+                    type="submit"
+                    className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    onClick={() => reset()}
+                    >
+                    Reset
+                </button>
+            </div>
+            </>)
+            
+            }
         </div>
         </div>
 
