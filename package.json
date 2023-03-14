@@ -1,0 +1,20 @@
+{
+  "name": "emojiulator",
+  "version": "0.0.0",
+  "description": "translate any sentence into emoji",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mldangelo/emojiulator.git"
+  },
+  "author": "Michael D'Angelo <michael.l.dangelo@gmail.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/mldangelo/emojiulator/issues"
+  },
+  "homepage": "https://github.com/mldangelo/emojiulator#readme"
+}
