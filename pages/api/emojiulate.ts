@@ -21,8 +21,6 @@ export default async function handler(req: NextRequest) {
 
     try {
         const { text } = await req.json();
-
-        console.log(text);
         
         const request: CreateChatCompletionRequest = {
             model: "gpt-3.5-turbo",
@@ -32,10 +30,8 @@ export default async function handler(req: NextRequest) {
             ],
         };
 
-        const completion: CreateChatCompletionResponse = await openai.createChatCompletion(request);
-        
-        const translation = completion.data.choices[0].message.content;
-
+        const completion = await openai.createChatCompletion(request);
+        const translation = completion?.data?.choices?.[0]?.message?.content;
 
         return new Response(JSON.stringify({translation }), { status: 200 });
     } catch (e) {
