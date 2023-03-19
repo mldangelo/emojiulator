@@ -33,7 +33,13 @@ export default async function handler(req: NextRequest) {
         const completion = await openai.createChatCompletion(request);
         const translation = completion?.data?.choices?.[0]?.message?.content;
 
-        return new Response(JSON.stringify({translation }), { status: 200 });
+        return new Response(JSON.stringify({translation }), {
+            status: 200,
+            headers: {
+              'content-type': 'application/json',
+              'cache-control': 'public, s-maxage=1200, stale-while-revalidate=600',
+            },
+          });
     } catch (e) {
         console.log(e);
         return new Response(null, { status: 400, statusText: "Bad Request" });
