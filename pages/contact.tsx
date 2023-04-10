@@ -7,7 +7,7 @@ export default function Contact() {
         </h2>
         <p>
           Please feel free to send us an email at{" "}
-          <a href="mailto:founders@emojiulator.club">founders@emojiulator.com</a>
+          <a href="mailto:founders@emojiulator.club" className="hover:underline">founders@emojiulator.com</a>
           .
         </p>
       </div>
