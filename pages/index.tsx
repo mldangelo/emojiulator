@@ -34,7 +34,7 @@ export default function Index() {
     "Forming",
     "Compressing",
     "Encoding",
-  ];
+  ].sort(() => Math.random() - 0.5);
   let waitIndex = 0;
 
   useEffect(() => {
@@ -47,7 +47,7 @@ export default function Index() {
       });
     }, 500);
     return () => clearInterval(timer);
-  }, []);
+  });
 
   useEffect(() => {
     if (isPending) {
