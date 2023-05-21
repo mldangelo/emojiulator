@@ -45,7 +45,7 @@ export default function Index() {
         }
         return loadingText + ".";
       });
-    }, 500);
+    }, 200);
     return () => clearInterval(timer);
   });
 
@@ -157,6 +157,9 @@ export default function Index() {
           {result?.length > 0 && (
             <>
               <div className="mt-2 sm:mt-0 sm:col-span-2 sm:flex sm:items-center sm:space-x-3 sm:space-y-0 space-y-3 py-4">
+                <h3 className="text-2xl font-bold tracking-left text-white sm:text-4xl text-left">
+                  {text}
+                </h3>
                 <h3 className="text-2xl font-bold tracking-left text-white sm:text-4xl text-left">
                   {result}
                 </h3>

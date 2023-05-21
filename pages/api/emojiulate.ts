@@ -25,8 +25,8 @@ export default async function handler(req: NextRequest) {
         const request: CreateChatCompletionRequest = {
             model: "gpt-3.5-turbo",
             messages: [
-                {"role": "system", "content": "You are a helpful assistant that translates english into emoji concisely and accurately."},
-                {"role": "user", "content": `Translate the following English text to a string of emojis: "${text}"`},
+                {"role": "system", "content": "You are a helpful assistant that translates english into emoji concisely and accurately. You will only respond with Emojis."},
+                {"role": "user", "content": `Translate the following English text to a string of emojis: "${text}". Be concise.`},
             ],
         };
 
