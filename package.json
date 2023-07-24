@@ -19,7 +19,7 @@
     "@types/react-dom": "18.2.7",
     "@vespaiach/axios-fetch-adapter": "^0.3.1",
     "axios": "^0.27.2",
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.3.1",
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.2",
     "next": "13.4.12",
