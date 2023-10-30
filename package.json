@@ -33,10 +33,10 @@
     "url": "git+https://github.com/mldangelo/emojiulator.git"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.0.2",
+    "@cloudflare/next-on-pages": "^1.7.2",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.2",
-    "vercel": "^31.0.1"
+    "vercel": "^32.5.0"
   }
 }
