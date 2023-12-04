@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.7.2",
-    "autoprefixer": "^10.4.14",
+    "autoprefixer": "^10.4.16",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.5",
     "vercel": "^32.5.0"
